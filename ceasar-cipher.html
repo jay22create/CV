@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secret Caesar Cipher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+    }
+    label, textarea, input {
+      display: block;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    input[type="number"] {
+      width: 80px;
+      display: inline-block;
+    }
+    button {
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 1em;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      background: #e3f7e3;
+      border: 1px solid #b3e6b3;
+      padding: 12px;
+      border-radius: 4px;
+      margin-top: 20px;
+      font-family: monospace;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 Secret Caesar Cipher</h1>
+  <label for="message">Message</label>
+  <textarea id="message" rows="3" placeholder="Enter your message here"></textarea>
+  <label for="shift">Shift Value</label>
+  <input type="number" id="shift" min="1" max="25" value="3" />
+
+  <button onclick="encode()">Encode</button>
+  <button onclick="decode()">Decode</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function caesarCipher(str, shift, decode = false) {
+      if (decode) shift = (26 - shift) % 26;
+      return str.replace(/[a-z]/gi, c => {
+        const base = c <= 'Z' ? 65 : 97;
+        return String.fromCharCode(
+          ((c.charCodeAt(0) - base + shift) % 26) + base
+        );
+      });
+    }
+
+    function encode() {
+      const msg = document.getElementById('message').value;
+      const shift = parseInt(document.getElementById('shift').value, 10);
+      document.getElementById('result').textContent = caesarCipher(msg, shift, false);
+    }
+
+    function decode() {
+      const msg = document.getElementById('message').value;
+      const shift = parseInt(document.getElementById('shift').value, 10);
+      document.getElementById('result').textContent = caesarCipher(msg, shift, true);
+    }
+  </script>
+</body>
+</html>
