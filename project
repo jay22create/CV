@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jay Young – Training Coordinator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .cv-container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 2em;
+      color: #007BFF;
+    }
+
+    .header h2 {
+      font-size: 1.2em;
+      color: #666;
+      font-weight: normal;
+      margin-top: 5px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h3 {
+      color: #007BFF;
+      font-size: 1.2em;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    .section p,
+    .section li {
+      margin-bottom: 10px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: #e3f0ff;
+      color: #007BFF;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <div class="header">
+      <h1>Jay Young</h1>
+      <h2>Training Coordinator</h2>
+      <p>Email: jay.young@email.com | Phone: (123) 456-7890</p>
+    </div>
+
+    <div class="section">
+      <h3>Profile</h3>
+      <p>Experienced Training Coordinator with a demonstrated history of working in the professional training & coaching industry. Skilled in curriculum development, project management, and team leadership.</p>
+    </div>
+
+    <div class="section">
+      <h3>Experience</h3>
+      <ul>
+        <li><strong>Training Coordinator</strong> – ABC Company (2020–Present)<br />
+          • Designed and delivered training programs for 200+ employees.<br />
+          • Coordinated onboarding and ongoing education for staff.
+        </li>
+        <li><strong>Assistant Trainer</strong> – XYZ Institute (2017–2020)<br />
+          • Supported lead trainers in developing course materials.<br />
+          • Managed training logistics and participant communications.
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Education</h3>
+      <ul>
+        <li>B.A. in Education, University of Learning (2013–2017)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Skills</h3>
+      <div class="skills">
+        <span class="skill">Curriculum Development</span>
+        <span class="skill">Project Management</span>
+        <span class="skill">Team Leadership</span>
+        <span class="skill">Communication</span>
+        <span class="skill">Instructional Design</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
