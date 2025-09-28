@@ -1,0 +1,52 @@
+// Caesar Cipher: Julius Caesar's Secret Party 🎉
+
+// Variables and initial values
+let partyLocation = "GARDEN"; // String
+const shiftValue = 3; // Number (used for Caesar cipher shift)
+let encryptedMessage = ""; // Will hold the encrypted message
+let decryptedMessage = ""; // Will hold the decrypted message
+let isPartySafe = false; // Boolean indicating if the message is safe
+
+// Ensure shiftValue is a valid integer and within 0-25
+function isValidShift(shift) {
+  return Number.isInteger(shift) && shift >= 0 && shift < 26;
+}
+
+if (!isValidShift(shiftValue)) {
+  console.log("Error: Shift value must be an integer between 0 and 25.");
+} else {
+  // Function to encrypt a message using Caesar Cipher
+  function encryptMessage(message, shift) {
+    let result = "";
+    for (let i = 0; i < message.length; i++) {
+      let char = message[i];
+      if (char >= 'A' && char <= 'Z') {
+        let code = ((char.charCodeAt(0) - 65 + shift) % 26) + 65;
+        result += String.fromCharCode(code);
+      } else if (char >= 'a' && char <= 'z') {
+        let code = ((char.charCodeAt(0) - 97 + shift) % 26) + 97;
+        result += String.fromCharCode(code);
+      } else {
+        result += char;
+      }
+    }
+    return result;
+  }
+
+  // Function to decrypt a message using Caesar Cipher
+  function decryptMessage(message, shift) {
+    return encryptMessage(message, (26 - shift) % 26);
+  }
+
+  // Encrypt the party location
+  encryptedMessage = encryptMessage(partyLocation, shiftValue);
+  console.log("Encrypted Message 🔐:", encryptedMessage);
+
+  // Decrypt the message
+  decryptedMessage = decryptMessage(encryptedMessage, shiftValue);
+  console.log("Decrypted Message 🔓:", decryptedMessage);
+
+  // Check if the decrypted message matches the original
+  isPartySafe = decryptedMessage === partyLocation;
+  console.log("Is the party safe? ✅", isPartySafe);
+}
