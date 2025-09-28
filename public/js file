@@ -1,0 +1,39 @@
+// Caesar Cipher: Encrypting Caesar's Friend's Name 🔐
+
+// Step 1 🧩 Store the lowercase Latin alphabet
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+// Caesar's friend's name (e.g., "BRUTUS")
+const friend = "BRUTUS";
+
+// Caesar's shift value for the cipher
+const shiftValue = 3;
+
+// Step 2 🧩 Find the index of the first letter of the friend's name
+const firstLetter = friend[0]; // "B"
+const index = alphabet.indexOf(firstLetter.toLowerCase()); // Convert to lowercase, get index
+
+console.log("Step 2: Index of first letter:", index); // Should be 1 (0-based indexing)
+
+// Step 3 🧩 Shift the first letter by the shift value
+let newIndex = index + shiftValue;
+let encryptedFirstLetter = alphabet[newIndex];
+
+console.log("Step 3: Encrypted letter without wrap-around:", encryptedFirstLetter); // May break if out of bounds
+
+// Question 2 🤔 Answer: Use modulus (%) to wrap around the alphabet if needed
+
+// Step 4 🧩 Get the length of the alphabet
+const alphabetLength = alphabet.length;
+
+// Step 5 🧩 Properly wrap using modulus
+newIndex = (index + shiftValue) % alphabetLength;
+encryptedFirstLetter = alphabet[newIndex];
+
+console.log("Step 5: Encrypted letter with wrap-around:", encryptedFirstLetter);
+
+// Step 6 🧩 Slice teaser message
+const encryptedMessage = "EUXWXV";
+const teaserMessage = encryptedMessage.slice(0, 3);
+
+console.log("Step 6: Teaser Message:", teaserMessage); // Outputs: "EUX"
