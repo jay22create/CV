@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Manipulation Tasks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+    .item {
+      padding: 1rem;
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 id="task1">Task 1: ❌</h2>
+
+  <div id="task2">Task 2: ❌</div>
+
+  <div id="task3">Task 3: ❌</div>
+
+  <div id="task4">
+    <p>Task 4: ❌</p>
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+  </div>
+
+  <div id="task5">
+    <p>Task 5: ❌</p>
+    <a id="springLink" href="#">Go to Springboard</a>
+  </div>
+
+  <div id="task6">
+    <p>Task 6: ❌</p>
+    <input id="nameInput" type="text" value="Change me" />
+  </div>
+
+  <div id="task7">
+    <p>Task 7: ❌</p>
+  </div>
+
+  <script>
+    // ✅ Task 1: Use innerText to change this content
+    document.getElementById("task1").innerText = "Task 1: ✅ Completed using innerText";
+
+    // ✅ Task 2: Use innerHTML to add a submit button
+    document.getElementById("task2").innerHTML = `Task 2: ✅ <button type="submit">Submit</button>`;
+
+    // ✅ Task 3: Change background color to '#232323'
+    document.body.style.backgroundColor = "#232323";
+
+    // ✅ Task 4: Add border to all elements with class 'item'
+    const items = document.querySelectorAll(".item");
+    items.forEach(item => {
+      item.style.border = "1px solid #fff";
+      item.style.color = "#fff";
+    });
+
+    // ✅ Task 5: Change href of the link
+    document.getElementById("springLink").href = "https://www.springboard.com/";
+
+    // ✅ Task 6: Change input value to 'DOM Master'
+    document.getElementById("nameInput").value = "DOM Master";
+
+    // ✅ Task 7: Update status
+    document.getElementById("task7").innerText = "Task 7: ✅ All tasks completed!";
+  </script>
+
+</body>
+</html>
