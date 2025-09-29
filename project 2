@@ -1,0 +1,47 @@
+// 🏛️ Caesar Cipher Encryption - Exercise 🎉
+// Technical Skills Survey - Caesar Encryption Practice
+// Encrypting the name "BRUTUS" using a Caesar Cipher
+
+// ---------------------------------------------
+// Step 1 🧩
+// Recall the Latin alphabet
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+// ---------------------------------------------
+// Step 2 🧩
+// Use Caesar Cipher to encrypt "BRUTUS"
+const friend = "BRUTUS"; // Name to encrypt
+const shiftValue = 3;    // Caesar shift value
+
+let encryptedName = "";
+
+for (let i = 0; i < friend.length; i++) {
+  const currentLetter = friend[i];
+  const currentIndex = alphabet.indexOf(currentLetter.toLowerCase());
+
+  // Handle non-alphabet characters just in case
+  if (currentIndex === -1) {
+    encryptedName += currentLetter; // leave unchanged
+    continue;
+  }
+
+  // Apply Caesar shift and wrap using modulus
+  const newIndex = (currentIndex + shiftValue) % alphabet.length;
+
+  // Preserve uppercase format
+  encryptedName += alphabet[newIndex].toUpperCase();
+}
+
+// Output the result
+console.log("Original Name:", friend);
+console.log("Encrypted Name (Caesar Cipher):", encryptedName);
+
+// ---------------------------------------------
+// Question 1 🤔
+// What advantage does using a loop provide?
+// 🔑 Answer:
+// Using a loop automates encryption, allowing us to handle each letter systematically.
+// It's efficient, consistent, and scalable for names of any length.
+
+console.log("\nQ1 - Advantage of using a loop:");
+console.log("🔑 Using a loop allows automation and consistency for n
