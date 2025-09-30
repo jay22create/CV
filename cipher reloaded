@@ -1,0 +1,105 @@
+// Caesar Cipher Implementation in JavaScript
+
+// Given Variables
+const friend = "BRUTUS";
+const shiftValue = 3;
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+// --------------------------------------------
+// Step 1 🧩
+// Create a function named `encryptLetter` that takes a letter and a shift value as parameters.
+// This function should return the encrypted version of the letter.
+
+/*
+  🔑 Answer:
+  - Find the index of the letter in the alphabet.
+  - Add the shift value and wrap around using modulus.
+  - Return the new letter.
+*/
+function encryptLetter(letter, shift) {
+  const index = alphabet.indexOf(letter.toLowerCase());
+  const newIndex = (index + shift) % alphabet.length;
+  return alphabet[newIndex];
+}
+
+// --------------------------------------------
+// Step 2 🧩
+// Create a function named `encryptMessage` that takes a word and a shift value as parameters.
+// This function should return the encrypted version of the entire word.
+
+/*
+  🔑 Answer:
+  - Loop through the word.
+  - Encrypt each letter using encryptLetter.
+  - Return the constructed encrypted string.
+*/
+function encryptMessage(word, shift) {
+  let encryptedMessage = "";
+  for (let i = 0; i < word.length; i++) {
+    encryptedMessage += encryptLetter(word[i], shift);
+  }
+  return encryptedMessage;
+}
+
+// --------------------------------------------
+// Step 3 🧩
+// Create a function named `decryptLetter` that takes an encrypted letter and a shift value as parameters.
+// This function should return the decrypted version of the letter.
+
+/*
+  🔑 Answer:
+  - Subtract the shift value and wrap using modulus (add alphabet.length to handle negatives).
+  - Return the original letter.
+*/
+function decryptLetter(letter, shift) {
+  const index = alphabet.indexOf(letter.toLowerCase());
+  const newIndex = (index - shift + alphabet.length) % alphabet.length;
+  return alphabet[newIndex];
+}
+
+// --------------------------------------------
+// Step 4 🧩
+// Create a function named `decryptMessage` that takes an encrypted word and a shift value as parameters.
+// This function should return the decrypted version of the entire word.
+
+/*
+  🔑 Answer:
+  - Loop through the encrypted word.
+  - Decrypt each letter using decryptLetter.
+  - Return the original word.
+*/
+function decryptMessage(word, shift) {
+  let decryptedMessage = "";
+  for (let i = 0; i < word.length; i++) {
+    decryptedMessage += decryptLetter(word[i], shift);
+  }
+  return decryptedMessage;
+}
+
+// --------------------------------------------
+// Testing Caesar Cipher
+
+const encrypted = encryptMessage(friend, shiftValue);
+const decrypted = decryptMessage(encrypted, shiftValue);
+
+console.log("Original Message:", friend);
+console.log("Encrypted Message:", encrypted);
+console.log("Decrypted Message:", decrypted);
+
+/*
+  🤔 Question:
+  If Caesar encrypts the word "BRUTUS" using our `encryptMessage` function and then decrypts 
+  the result using our `decryptMessage` function, will he get "BRUTUS" back?
+
+  🔑 Answer:
+  Yes, Caesar will get "BRUTUS" back. The decryption function is the inverse of the encryption 
+  function. When applied sequentially, they cancel each other out, restoring the original message.
+*/
+
+/*
+  🥳 Fun Fact:
+  While the Caesar Cipher was groundbreaking in its time, today's encryption standards are far 
+  more sophisticated. One would need more than a simple shift in the alphabet to decode modern 
+  encrypted communications. In fact, modern encryption algorithms, when used correctly, can take 
+  billions of years to crack, even with today's most advanced computers!
+*/
