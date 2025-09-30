@@ -1,0 +1,39 @@
+// 🌟 Caesar Cipher with Party-Level Secrecy 🌟
+// ---------------------------------------------------
+// Inspired by Julius Caesar's encrypted invitations to his secret Roman parties 🎉
+// ---------------------------------------------------
+
+// 🔤 Define the alphabet (lowercase only for simplicity)
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+// ✅ Utility: Get a random letter from the alphabet
+function getRandomLetter() {
+  const randomIndex = Math.floor(Math.random() * alphabet.length);
+  return alphabet[randomIndex];
+}
+
+// 🔐 Caesar Cipher Encryption Function
+function encrypt(message, shiftValue) {
+  let encryptedMessage = "";
+  let count = 0; // To track how many real characters we've added
+
+  for (let i = 0; i < message.length; i++) {
+    const char = message[i];
+    const lowerChar = char.toLowerCase();
+
+    // Check if character is in the alphabet
+    if (alphabet.includes(lowerChar)) {
+      const isUpperCase = char === char.toUpperCase();
+
+      // Get original index, shift, and wrap using modulo
+      const originalIndex = alphabet.indexOf(lowerChar);
+      const shiftedIndex = (originalIndex + shiftValue) % alphabet.length;
+      const encryptedChar = isUpperCase
+        ? alphabet[shiftedIndex].toUpperCase()
+        : alphabet[shiftedIndex];
+
+      encryptedMessage += encryptedChar;
+      count++;
+
+      // After every 2 real letters, insert a random letter
+      if (count
